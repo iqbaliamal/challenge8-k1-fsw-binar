@@ -15,7 +15,7 @@ module.exports = {
     database: `${DB_NAME}_development`,
     host: DB_HOST,
     port: DB_PORT,
-    dialect: "postgres"
+    dialect: "postgres",
   },
   test: {
     username: DB_USER,
@@ -23,19 +23,20 @@ module.exports = {
     database: `${DB_NAME}_test`,
     host: DB_HOST,
     port: DB_PORT,
-    dialect: "postgres"
+    dialect: "postgres",
   },
   production: {
-    username: "zeslxbsxlcjrkd",
-    password: "6fceb405276cfa813f4bf720c7f43dac6230a560e9afede767f1abd22f54d65f",
-    database: "d1vm8qm110chjg",
+    username: "luwfmfcozoysoo",
+    password:
+      "93b3ac6bdb2e31328234c4c2e399c338c0a0bb2ecc5debc7484291b95864bb03",
+    database: "d5qv55rcl1ij4t",
     host: "ec2-54-165-178-178.compute-1.amazonaws.com",
     dialect: "postgres",
     dialectOptions: {
-      "ssl": {
-        "require": true,
-        "rejectUnauthorized": false
-      }
-    }
-  }
-}
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
+  },
+};
