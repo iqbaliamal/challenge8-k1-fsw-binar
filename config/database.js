@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const {
-  DB_USER = "azis",
+  DB_USER = "posrtgres",
   DB_PASSWORD = "",
   DB_NAME = "db_challenge8",
   DB_HOST = "127.0.0.1",
@@ -21,7 +21,7 @@ module.exports = {
   test: {
     username: DB_USER,
     password: DB_PASSWORD,
-    database: `${DB_NAME}_test`,
+    database: `${DB_NAME}`,
     host: DB_HOST,
     port: DB_PORT,
     dialect: "postgres",

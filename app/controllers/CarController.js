@@ -1,6 +1,6 @@
 const { Op } = require("sequelize");
 const ApplicationController = require("./ApplicationController");
-
+const CarAlreadyRentedError = require("../errors/CarAlreadyRentedError");
 class CarController extends ApplicationController {
   constructor({ carModel, userCarModel, dayjs }) {
     super();
@@ -89,6 +89,17 @@ class CarController extends ApplicationController {
         rentEndedAt,
       });
 
+      await this.carModel.update(
+        {
+          isCurrentlyRented: true,
+        },
+        {
+          where: {
+            id: car.id,
+          },
+        }
+      );
+
       res.status(201).json(userCar);
     } catch (err) {
       next(err);
@@ -101,13 +112,19 @@ class CarController extends ApplicationController {
 
       const car = this.getCarFromRequest(req);
 
-      await car.update({
-        name,
-        price,
-        size,
-        image,
-        isCurrentlyRented: false,
-      });
+      await this.carModel.update(
+        {
+          name,
+          price,
+          size,
+          image,
+        },
+        {
+          where: {
+            id: req.params.id,
+          },
+        }
+      );
 
       res.status(200).json(car);
     } catch (err) {
@@ -121,7 +138,11 @@ class CarController extends ApplicationController {
   };
 
   handleDeleteCar = async (req, res) => {
-    const car = await this.carModel.destroy(req.params.id);
+    // const car = await this.carModel.destroy(req.params.id);
+    await this.carModel.destroy({
+      where: { id: req.params.id },
+    });
+
     res.status(204).end();
   };
 
