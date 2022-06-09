@@ -11,5 +11,5 @@ Good luck bro! test
 
 ## Deploy
 
-1. Root = https://fsw5-kelompok1-ch8.herokuapp.com/
-2. List Cars = https://fsw5-kelompok1-ch8.herokuapp.com/v1/cars
+1. Root = https://fsw5-k1-challenge8.herokuapp.com/
+2. List Cars = https://fsw5-k1-challenge8.herokuapp.com/v1/cars
