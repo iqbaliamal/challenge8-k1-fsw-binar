@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const {
-  DB_USER = "posrtgres",
+  DB_USER = "azis",
   DB_PASSWORD = "",
   DB_NAME = "db_challenge8",
   DB_HOST = "127.0.0.1",
